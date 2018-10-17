@@ -12,9 +12,8 @@ class SelectField  extends Component {
   }
   
   handleSelect(e) {
-    let rand = Math.floor(Math.random()*(this.props.options.length-1));
     if(this.props.options[e.target.value] === 'random') {
-      
+      let rand = Math.floor(Math.random()*(this.props.options.length-1));
       this.setState({
         selectedOption: this.props.options[rand]
       })
@@ -34,7 +33,7 @@ class SelectField  extends Component {
         onChange={this.handleSelect} 
       >
         {this.props.options.map( (index, val) => {
-        return  <option key={val} value={val}>
+        return  <option key={val} value={val} onClick={this.handleSelect}>
                   {index}
                 </option>
         })}
